@@ -1,4 +1,4 @@
 /**
  * Customer (buyer) feature — contacts, billing details.
  */
-package one.kasperone.faktura.customer;
+package pl.kasperone.faktura.customer;
