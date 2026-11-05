@@ -1,4 +1,4 @@
-package pl.kasperone.faktura.shared.api;
+package io.github.kasperone.faktura.shared.api;
 
 import java.util.Map;
 import org.springframework.web.bind.annotation.GetMapping;

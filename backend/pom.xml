@@ -11,7 +11,7 @@
         <relativePath/>
     </parent>
 
-    <groupId>pl.kasperone</groupId>
+    <groupId>io.github.kasperone</groupId>
     <artifactId>faktura-api</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>faktura-api</name>

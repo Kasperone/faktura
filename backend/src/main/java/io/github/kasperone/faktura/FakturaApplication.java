@@ -1,4 +1,4 @@
-package pl.kasperone.faktura;
+package io.github.kasperone.faktura;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

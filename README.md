@@ -60,7 +60,7 @@ cd frontend && npm run lint && npm run build
 ## Repository layout
 
 ```
-backend/     Spring Boot REST API (package-by-feature under pl.kasperone.faktura.*)
+backend/     Spring Boot REST API (package-by-feature under io.github.kasperone.faktura.*)
 frontend/    React SPA
 docker-compose.yml   PostgreSQL 18 only (application runs on the host for now)
 ```

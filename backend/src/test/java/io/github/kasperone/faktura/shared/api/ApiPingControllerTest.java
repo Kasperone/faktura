@@ -1,4 +1,4 @@
-package pl.kasperone.faktura.shared.api;
+package io.github.kasperone.faktura.shared.api;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;

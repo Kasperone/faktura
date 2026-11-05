@@ -1,4 +1,4 @@
-package pl.kasperone.faktura.config;
+package io.github.kasperone.faktura.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;

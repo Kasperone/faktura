@@ -1,4 +1,4 @@
 /**
  * Invoice feature — documents, line items, numbering.
  */
-package pl.kasperone.faktura.invoice;
+package io.github.kasperone.faktura.invoice;
