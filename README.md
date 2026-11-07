@@ -2,6 +2,10 @@
 
 Monorepo for the Faktura invoicing application (Poland-focused, KSeF-ready roadmap).
 
+## Why this project
+
+Faktura is my hands-on Java learning project. Coming from a frontend background, I'm expanding toward full-stack development with Java, Spring Boot, and React. I chose an invoicing application to explore backend topics such as data modeling, validation, persistence, security, and external integrations. The project is at an early stage, and its scope will grow as I learn.
+
 ## Stack
 
 | Area     | Technology                          |
