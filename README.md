@@ -67,4 +67,4 @@ docker-compose.yml   PostgreSQL 18 only (application runs on the host for now)
 
 ## CI
 
-GitHub Actions runs Maven `verify` for the backend (with a Postgres service) and `npm ci`, lint, and build for the frontend on pushes and pull requests.
+GitHub Actions runs **gitleaks**, backend `./mvnw -B verify` (tests, Spotless, ArchUnit; Postgres service), and frontend `npm ci` / lint / build. See [AGENTS.md](AGENTS.md) and [docs/testing.md](docs/testing.md).
