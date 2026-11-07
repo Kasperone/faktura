@@ -1,4 +1,2 @@
-/**
- * Customer (buyer) feature — contacts, billing details.
- */
+/** Customer (buyer) feature — contacts, billing details. */
 package io.github.kasperone.faktura.customer;

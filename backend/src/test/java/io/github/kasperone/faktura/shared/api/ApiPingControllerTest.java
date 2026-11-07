@@ -14,13 +14,13 @@ import org.springframework.test.web.servlet.MockMvc;
 @ActiveProfiles("test")
 class ApiPingControllerTest {
 
-    @Autowired
-    private MockMvc mockMvc;
+  @Autowired private MockMvc mockMvc;
 
-    @Test
-    void pingReturnsOk() throws Exception {
-        mockMvc.perform(get("/api/v1/ping"))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.status").value("ok"));
-    }
+  @Test
+  void pingReturnsOk() throws Exception {
+    mockMvc
+        .perform(get("/api/v1/ping"))
+        .andExpect(status().isOk())
+        .andExpect(jsonPath("$.status").value("ok"));
+  }
 }
