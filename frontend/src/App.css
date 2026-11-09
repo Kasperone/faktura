@@ -1,0 +1,36 @@
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f4f5f7;
+  color: #1a1d21;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  padding: 0 1.5rem;
+  height: 3.5rem;
+  background: #ffffff;
+  border-bottom: 1px solid #e2e5ea;
+}
+
+.app-logo {
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.app-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.app-placeholder {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: #5c6570;
+}
