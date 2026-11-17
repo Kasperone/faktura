@@ -9,9 +9,6 @@ services:
       POSTGRES_DB: faktura
       POSTGRES_USER: faktura
       POSTGRES_PASSWORD: faktura
-    # Postgres 18 stores the cluster in /var/lib/postgresql/18/docker and
-    # declares VOLUME /var/lib/postgresql. A mount at /var/lib/postgresql/data
-    # is not that directory: the entrypoint aborts before initdb.
     volumes:
       - faktura_postgres_data:/var/lib/postgresql
     healthcheck:
