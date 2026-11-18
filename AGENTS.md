@@ -41,6 +41,12 @@ With Postgres down, `FakturaApplicationTests` still passes (`application-test.ym
 
 When docs and code disagree, **code + CI win**; fix docs in the same change.
 
+## Library APIs (Context7)
+
+`.cursor/mcp.json` registers the `context7` MCP server (OAuth: `https://mcp.context7.com/mcp/oauth`). Sign in once under Cursor Settings → Tools & MCP.
+
+Before introducing or changing a third-party call, annotation, or config key, resolve that library and query its docs for the version in `backend/pom.xml` or `frontend/package.json` (`resolve-library-id`, then `query-docs`). Skip renames, formatting, and edits that keep the same library calls. `./mvnw verify` and the frontend lint/build remain the check that the code is valid. The same steps are in `.cursor/rules/context7-library-docs.mdc`.
+
 ## Cursor CLI note
 
 Only this `AGENTS.md` is the documented entry point for CLI sessions. `.cursor/rules`, hooks, and skills do **not** auto-apply unless you configure them separately.

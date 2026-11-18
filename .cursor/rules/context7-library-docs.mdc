@@ -1,0 +1,27 @@
+---
+description: Look up current third-party APIs in Context7 before changing library calls
+alwaysApply: true
+---
+
+# Context7 library docs
+
+The `context7` MCP server is configured in `.cursor/mcp.json`. Use it for third-party API shape. The compiler and linters still decide whether the code is valid (`./mvnw verify`, `npm run lint`, `npm run build`).
+
+## When to query
+
+Before introducing or changing a call, annotation, or config key from a dependency, look up that library for the version declared in `backend/pom.xml` or `frontend/package.json`.
+
+1. Call `resolve-library-id` with `libraryName` in official punctuation (`Spring Boot`, not `springboot`) and a `query` that names the task.
+2. Call `query-docs` with the returned `libraryId`. Prefer the version suffix that matches the manifest when the resolver lists one (for example a Spring Boot `4.1.2` id). Set `language` to `Java` or `TypeScript`.
+
+Re-read the manifest if a version may have moved. Today those files pin Java 25, Spring Boot 4.1.2, React 19, TypeScript 5.9, and Vite 8.
+
+## Skip
+
+- Renames, formatting, and moves that keep the same library calls.
+- Tests that only rearrange calls already in the codebase.
+- Types and modules owned by this repo (`io.github.kasperone.faktura`, `frontend/src`).
+
+## After the edit
+
+Run the check that matches the files you changed: `cd backend && ./mvnw -B verify`, or `cd frontend && npm run lint && npm run build`.
