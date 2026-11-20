@@ -28,13 +28,27 @@ Faktura is my hands-on Java learning project. Coming from a frontend background,
 docker compose up -d
 ```
 
-Defaults: database `faktura`, user/password `faktura`, port `5432`. Copy `.env.example` to `.env` if you want to override connection settings.
+Defaults: database `faktura`, user/password `faktura`, port `5432`. If that port is taken, copy `.env.example` to `.env` and set `DB_PORT`; Docker Compose reads `.env` automatically.
 
 ### 2. Backend API
 
 ```bash
 cd backend
 ./mvnw spring-boot:run
+```
+
+The backend does not read `.env`. If Postgres is not on `localhost:5432` (another port, or a remote Docker host), create `backend/src/main/resources/application-local.yml` (gitignored):
+
+```yaml
+spring:
+  datasource:
+    url: jdbc:postgresql://192.168.1.14:5434/faktura
+```
+
+Then run with the `local` profile:
+
+```bash
+./mvnw spring-boot:run -Dspring-boot.run.profiles=local
 ```
 
 - API base: `http://localhost:8080`
