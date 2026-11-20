@@ -42,7 +42,7 @@ The backend does not read `.env`. If Postgres is not on `localhost:5432` (anothe
 ```yaml
 spring:
   datasource:
-    url: jdbc:postgresql://192.168.1.14:5434/faktura
+    url: jdbc:postgresql://<db-host>:<db-port>/faktura
 ```
 
 Then run with the `local` profile:
