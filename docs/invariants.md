@@ -11,6 +11,8 @@
 | Each feature package does not depend on the other feature packages | ArchUnit |
 | `shared` does not depend on feature packages | ArchUnit |
 | Repository scan finds no known secret patterns | gitleaks (CI) |
+| Schema changes ship as Flyway versioned migrations; Hibernate does not generate schema (`spring.jpa.hibernate.ddl-auto=validate`) | `PostgresFlywayContextTest` (Testcontainers PostgreSQL 18) |
+| A request does not keep a JPA persistence context open after the transaction (`spring.jpa.open-in-view=false`) | `PostgresFlywayContextTest` |
 
 ## Planned (invoicing / domain — not enforced)
 

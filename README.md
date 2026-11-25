@@ -12,7 +12,7 @@ Faktura is my hands-on Java learning project. Coming from a frontend background,
 | -------- | ----------------------------------- |
 | Backend  | Java 25, Spring Boot 4.1, Maven     |
 | Frontend | React, TypeScript, Vite             |
-| Database | PostgreSQL 18 (Docker Compose only) |
+| Database | PostgreSQL 18; schema via Flyway (local Postgres from Docker Compose) |
 
 ## Prerequisites
 
@@ -68,7 +68,7 @@ App: `http://localhost:5173` (Vite proxies `/api` to the backend).
 ### Useful commands
 
 ```bash
-# Backend tests
+# Backend tests (the Postgres 18 Flyway test needs Docker)
 cd backend && ./mvnw verify
 
 # Frontend lint and production build
@@ -85,7 +85,7 @@ docker-compose.yml   PostgreSQL 18 only (application runs on the host for now)
 
 ## CI
 
-GitHub Actions runs **gitleaks**, backend `./mvnw -B verify` (tests, Spotless, ArchUnit; Postgres service), and frontend `npm ci` / lint / build. See [AGENTS.md](AGENTS.md) and [docs/testing.md](docs/testing.md).
+GitHub Actions runs **gitleaks**, backend `./mvnw -B verify` (tests, Spotless, ArchUnit, a Testcontainers PostgreSQL 18 check, plus a Postgres service), and frontend `npm ci` / lint / build. See [AGENTS.md](AGENTS.md) and [docs/testing.md](docs/testing.md).
 
 ## License
 

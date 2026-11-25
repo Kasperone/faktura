@@ -53,6 +53,8 @@ jobs:
           cache: maven
           cache-dependency-path: backend/pom.xml
       - name: Build and test
+        # verify includes PostgresFlywayContextTest, which starts postgres:18
+        # itself via Testcontainers. The service container above is separate.
         env:
           DB_HOST: localhost
           DB_PORT: 5432

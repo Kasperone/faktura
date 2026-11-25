@@ -1,4 +1,4 @@
-# Architecture (phase 0)
+# Architecture
 
 ## Monorepo
 
@@ -24,7 +24,7 @@ io.github.kasperone.faktura
 └── ksef/                        # KSeF integration — placeholder
 ```
 
-**As implemented today:** only `config`, `shared.api`, and the application class contain code; feature packages are empty shells ready for phase 1.
+**As implemented today:** only `config`, `shared.api`, and the application class contain code; feature packages are empty shells.
 
 **Enforced today (ArchUnit, `ArchitectureRulesTest`):** `config` and `shared` must not depend on feature packages; feature slices must not depend on each other (cross-feature rules use `allowEmptyShould(true)` until feature code beyond `package-info` exists).
 
@@ -36,6 +36,10 @@ io.github.kasperone.faktura
 - Features may later depend on `shared` and Spring/JDK types (not enforced until code exists).
 
 No hexagonal modules, no multi-module Maven layout, no Spring Modulith.
+
+## Persistence
+
+Flyway is the only writer of schema. Versioned SQL lives in `backend/src/main/resources/db/migration` (today: `V1__baseline.sql`, a marker table, no domain tables). Hibernate is on the classpath with `spring.jpa.hibernate.ddl-auto=validate` and `spring.jpa.open-in-view=false`, so it checks mappings and does not create or alter tables, and it does not hold a persistence context open for the whole HTTP request.
 
 ## API surface (current)
 
