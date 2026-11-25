@@ -11,7 +11,7 @@ cd frontend && npm ci && npm run lint && npm run build
 # secrets (optional locally): see docs/testing.md — gitleaks CLI not required on PATH if you use Docker
 ```
 
-With Postgres down, `FakturaApplicationTests` still passes (`application-test.yml` disables datasource auto-config); CI starts Postgres for the backend job.
+With Postgres down, `FakturaApplicationTests` still passes (`application-test.yml` disables datasource auto-config). `PostgresFlywayContextTest` starts its own PostgreSQL 18 container via Testcontainers and needs a working Docker daemon. CI runs that test on the GitHub runner and also starts a Postgres 18 service.
 
 ## Hard constraints
 
@@ -19,6 +19,7 @@ With Postgres down, `FakturaApplicationTests` still passes (`application-test.ym
 |------|-------------|
 | Java 25, Spring Boot 4.1, `groupId` `io.github.kasperone`, base package `io.github.kasperone.faktura` | **advisory** (review) |
 | Production DB: PostgreSQL via env vars — no H2 | **advisory** (`pom.xml`, `application.yml`) |
+| Flyway owns the schema; Hibernate `ddl-auto` is `validate`; `open-in-view` is `false` | **`application.yml`**, `PostgresFlywayContextTest` |
 | `./mvnw verify` includes Spotless **check** (Google Java Format) | **`spotless-maven-plugin`** |
 | Feature package boundary rules (ArchUnit) | **`ArchitectureRulesTest`** (`mvn verify`) |
 | No committed secrets | **CI `gitleaks` job** |
@@ -36,7 +37,7 @@ With Postgres down, `FakturaApplicationTests` still passes (`application-test.ym
 ## Advisory (not gated)
 
 - Package-by-feature folders (`customer`, `invoice`, `organization`, `ksef`) are mostly placeholders today.
-- Phase 1+: Flyway, auth, KSeF, PDF, Testcontainers (see README and `docs/invariants.md`).
+- Later phases: auth, KSeF, PDF (see README and `docs/invariants.md`). Flyway and the Testcontainers Postgres test are in place.
 - Do not force-push, rewrite merged history, or commit `.env` secrets.
 
 When docs and code disagree, **code + CI win**; fix docs in the same change.
